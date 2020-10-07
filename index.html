@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPJP - laptop documentation generation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">GPJP</h1>
+                <p class="lead">Laptop documentation generation</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="serial">Serial</label>
+                        <input type="text" class="form-control" id="serial">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="hostname">Hostname</label>
+                        <input type="text" class="form-control" id="hostname">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="manufacturer">Manufacturer</label>
+                        <input type="text" class="form-control" id="manufacturer">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="model">Model</label>
+                        <input type="text" class="form-control" id="model">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="last-reviewed">Last reviewed</label>
+                        <input type="date" class="form-control" id="last-reviewed">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="state">State</label>
+                        <select class="custom-select mr-sm-2" id="state">
+                            <option selected>Choose...</option>
+                            <option value="dostatečný">Sufficient</option>
+                            <option value="nedostatečný">Insufficient</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" value="ucitel">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" value="teacher">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="os">OS</label>
+                        <select class="custom-select mr-sm-2" id="os">
+                            <option selected>Choose...</option>
+                            <option value="windows10">Windows 10</option>
+                            <option value="windows8">Windows 8</option>
+                            <option value="windows7">Windows 7</option>
+                            <option value="linux">Linux</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="cpu">CPU</label>
+                        <input type="text" class="form-control" id="cpu">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="ram">RAM</label>
+                        <div class="input-group">
+                            <input type="int" class="form-control" id="ram">
+                            <div class="input-group-append">
+                                <span class="input-group-text">GB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="hdd">HDD</label>
+                        <input type="text" class="form-control" id="hdd">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h5>Generated output</h5>
+                <textarea class="form-control" id="result" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>
