@@ -163,8 +163,7 @@ Username: $USERNAME$\\\\
 Password: $PASSWORD$\\\\
 
 
-^ Uživatel ^ datum přijetí ^ datum odevzdání ^
-| pořízen | ??? | ??? |
+^ Uživatel ^ datum přijetí ^
 `;
         const info = [
             "name",
@@ -186,6 +185,10 @@ Password: $PASSWORD$\\\\
             let temp = template;
             info.forEach(e => temp = temp.replaceAll('$' + e.toUpperCase() + '$', document.getElementById(e)
                 .value));
+            
+            const c = document.getElementById('rows').childElementCount;
+            for (let i = 0; i < c; i++)
+                temp += `| [[ ${document.getElementById('owner-' + i).value} ]] | ${document.getElementById('accepted-' + i).value} |\n`;
             document.getElementById('result').value = temp;
         });
 
@@ -197,9 +200,7 @@ Password: $PASSWORD$\\\\
             clone.querySelector('#owner-0').value = "";
             clone.querySelector('#accepted-0').value = "";
             clone.innerHTML = clone.innerHTML.replaceAll('owner-0', 'owner-' + e);
-            clone.innerHTML = clone.innerHTML.replaceAll('accepted-', 'accepted-' + e);
-
-
+            clone.innerHTML = clone.innerHTML.replaceAll('accepted-0', 'accepted-' + e);
             document.getElementById('rows').appendChild(clone);
         })
     </script>
