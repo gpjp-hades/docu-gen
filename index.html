@@ -20,7 +20,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="data-form">
                 <div class="form-row">
                     <div class="form-group col-md-5">
                         <label for="name">Name</label>
@@ -109,10 +109,10 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row my-5">
             <div class="col-md-12">
                 <h5>Generated output</h5>
-                <textarea class="form-control" id="result" readonly></textarea>
+                <textarea class="form-control" id="result" rows="25" readonly style="font-family:monospace;"></textarea>
             </div>
         </div>
     </div>
@@ -126,9 +126,51 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-
     <script>
-        
+        const template = `====== $NAME$ : $SERIAL$ ======
+
+hostname: $HOSTNAME$\\
+S/N: $SERIAL$ \\
+Výrobce: $MANUFACTURER$ \\
+Model: $MODEL$
+
+Odpovědná osoba: [[$OWNER$]]\\
+Poslední prohlídka: $LAST-REVIEWED$\\
+Stav: $STATE$\\
+
+OS: $OS$\\
+CPU: $CPU$\\
+RAM: $RAM$\\
+HDD: $HDD$
+
+Username: $USERNAME$\\
+Password: $PASSWORD$\\
+
+
+^ Uživatel ^ datum přijetí ^ datum odevzdání ^
+| pořízen | ??? | ??? |
+`;
+        const info = [
+            "name",
+            "serial",
+            "hostname",
+            "manufacturer",
+            "model",
+            "last-reviewed",
+            "state",
+            "username",
+            "password",
+            "os",
+            "cpu",
+            "ram",
+            "hdd"
+        ];
+
+        $("#data-form .form-control").change(() => {
+            let temp = template;
+            info.forEach(e => temp = temp.replaceAll('$' + e.toUpperCase() + '$', document.getElementById(e).value));
+            document.getElementById('result').value = temp;
+        });
     </script>
 </body>
 
