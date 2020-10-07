@@ -107,6 +107,22 @@
                         <input type="text" class="form-control" id="hdd">
                     </div>
                 </div>
+
+                <button class="btn btn-primary col-md-1" id="new-owner">Add</button>
+
+                <div id="rows">
+                    <div class="form-row" id="user-change">
+                        <div class="form-group col-md-3">
+                            <label for="owner-0">Owner</label>
+                            <input type="text" class="form-control" id="owner-0">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="accepted-0">Accepted</label>
+                            <input type="date" class="form-control" id="accepted-0">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row my-5">
@@ -129,22 +145,22 @@
     <script>
         const template = `====== $NAME$ : $SERIAL$ ======
 
-hostname: $HOSTNAME$\\
-S/N: $SERIAL$ \\
-Výrobce: $MANUFACTURER$ \\
+hostname: $HOSTNAME$\\\\
+S/N: $SERIAL$ \\\\
+Výrobce: $MANUFACTURER$ \\\\
 Model: $MODEL$
 
-Odpovědná osoba: [[$OWNER$]]\\
-Poslední prohlídka: $LAST-REVIEWED$\\
-Stav: $STATE$\\
+Odpovědná osoba: [[$OWNER$]]\\\\
+Poslední prohlídka: $LAST-REVIEWED$\\\\
+Stav: $STATE$\\\\
 
-OS: $OS$\\
-CPU: $CPU$\\
-RAM: $RAM$\\
+OS: $OS$\\\\
+CPU: $CPU$\\\\
+RAM: $RAM$\\\\
 HDD: $HDD$
 
-Username: $USERNAME$\\
-Password: $PASSWORD$\\
+Username: $USERNAME$\\\\
+Password: $PASSWORD$\\\\
 
 
 ^ Uživatel ^ datum přijetí ^ datum odevzdání ^
@@ -168,9 +184,24 @@ Password: $PASSWORD$\\
 
         $("#data-form .form-control").change(() => {
             let temp = template;
-            info.forEach(e => temp = temp.replaceAll('$' + e.toUpperCase() + '$', document.getElementById(e).value));
+            info.forEach(e => temp = temp.replaceAll('$' + e.toUpperCase() + '$', document.getElementById(e)
+                .value));
             document.getElementById('result').value = temp;
         });
+
+        $('#new-owner').on('click', () => {
+            const clone = document.getElementById('user-change').cloneNode(true);
+
+            const e = document.getElementById('rows').childElementCount;
+            clone.id = "";
+            clone.querySelector('#owner-0').value = "";
+            clone.querySelector('#accepted-0').value = "";
+            clone.innerHTML = clone.innerHTML.replaceAll('owner-0', 'owner-' + e);
+            clone.innerHTML = clone.innerHTML.replaceAll('accepted-', 'accepted-' + e);
+
+
+            document.getElementById('rows').appendChild(clone);
+        })
     </script>
 </body>
 
